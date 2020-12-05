@@ -23,8 +23,6 @@ class CreateEnterprisesTable extends Migration
             $table->integer('address_id')->unsigned();
             $table->foreign('address_id')->references('id')->on('addresses');
 
-            $table->integer('contact_id')->unsigned();
-            $table->foreign('contact_id')->references('id')->on('contacts');
         });
     }
 

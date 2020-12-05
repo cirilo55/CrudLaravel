@@ -11,6 +11,6 @@ $factory->define(Enterprise::class, function (Faker $faker) {
         'cnpj' => rand(1000, 100000),
         'fantasy_name'=> $faker->company,
         'address_id'=> rand(1,50),
-        'contact_id'=>rand(1,50)
+
     ];
 });

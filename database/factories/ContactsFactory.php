@@ -9,7 +9,7 @@ $factory->define(Contact::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
-//        'enterprise_id'=>rand(1,20)
+        'enterprise_id'=>rand(1,20)
 
     ];
 });

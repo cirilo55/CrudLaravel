@@ -3,8 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Contact extends Model
 {
@@ -12,9 +11,9 @@ class Contact extends Model
 
 
 
-    public function contact(): HasMany
+    public function contact(): BelongsTo
     {
-        return $this->hasMany(Enterprise::class, 'enterprise_id');
+        return $this->belongsTo(Enterprise::class, 'enterprise_id');
     }
 
 

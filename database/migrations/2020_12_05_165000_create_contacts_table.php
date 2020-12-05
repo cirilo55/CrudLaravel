@@ -14,8 +14,8 @@ class CreateContactsTable extends Migration
             $table->string('name');
             $table->string('email');
 
-//            $table->integer('enterprise_id')->unsigned();
-//            $table->foreign('enterprise_id')->references('id')->on('enterprises');
+            $table->integer('enterprise_id')->unsigned();
+            $table->foreign('enterprise_id')->references('id')->on('enterprises');
             $table->timestamps();
         });
     }
