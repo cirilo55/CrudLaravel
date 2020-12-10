@@ -14,15 +14,8 @@ class AddressController extends Controller
         return Address::all();
     }
 
-    public function create()
-    {
-
-    }
-
-
     public function store(Request $request)
     {
-
         $request->validate([
             'street' => 'required',
             'city' => 'required',
@@ -34,19 +27,6 @@ class AddressController extends Controller
         return response([$new, 'msg'=>'Endereço criado com sucesso.'], 201);
 
     }
-
-
-    public function show(Address $address)
-    {
-
-    }
-
-
-    public function edit(Address $address)
-    {
-
-    }
-
 
     public function update(Request $request)
     {
@@ -60,8 +40,9 @@ class AddressController extends Controller
         $address = Address::find($request['id']);
 
         if($address){
-           $address->update($request->all());
-           return response([$address, 'msg'=>'Atualizado com sucesso'], 200);
+           $result = tap($address)->update($request->all());
+
+           return response([$result, 'msg'=>'Atualizado com sucesso'], 200);
         }else{
             return response(['msg'=>'id não encontrado.'],404);
         }

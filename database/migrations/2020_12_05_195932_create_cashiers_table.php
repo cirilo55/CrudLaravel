@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEnterpriseGroupsTable extends Migration
+class CreateCashiersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateEnterpriseGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('enterprise_groups', function (Blueprint $table) {
+        Schema::create('cashiers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('group_name');
-
-            $table->integer('enterprise_id')->unsigned();
-            $table->foreign('enterprise_id')->references('id')->on('enterprises');
+            $table->date('movement_date');
+            $table->double('value_of_sale');
+            $table->double('value_of_product');
+            $table->double('deduction');
 
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ class CreateEnterpriseGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('enterprise_groups');
+        Schema::dropIfExists('cashiers');
     }
 }

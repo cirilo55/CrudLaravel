@@ -2,26 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Contact;
-use App\Traits\ApiCrudTrait;
+use App\MovementType;
 use Illuminate\Http\Request;
+use App\Traits\ApiCrudTrait;
 
-class ContactController extends Controller
+class MovementTypeController extends Controller
 {
     use ApiCrudTrait;
 
     public function model(){
-        return Contact::class;
+        return MovementType::class;
     }
-
     public function validationRules ( $resource_id = 0 )
     {
-        return ['name'=>'required', 'email'=>'required'];
+        return ['description'=>'required'];
     }
 
     public function validationRulesId ( $resource_id = 0 )
     {
-        return ['id'=>'required','name'=>'required', 'email'=>'required'];
+        return ['id'=>'required','description'=>'required'];
 
     }
 }
